@@ -11,6 +11,8 @@ CRITICAL RULES:
 3. "square root of 25 plus 30" = sqrt(25) + 30 (NOT sqrt(25 + 30))
 4. "square root of the sum of 25 and 30" = sqrt(25 + 30)
 5. Use exact function names from the list below
+6. For derivative WITHOUT a point specified, use x=0 as default
+7. For integrate WITHOUT bounds, use 0 and 1 as defaults
 
 AVAILABLE OPERATIONS:
 
@@ -23,10 +25,18 @@ Functions:
 - log(x), ln(x), exp(x), factorial(n)
 - AND(a,b), OR(a,b), NOT(a), XOR(a,b)
 
+Percentage Operations:
+- percent(x) or pct(x) - convert to decimal: percent(50) = 0.5
+- percent_add(base, pct) - add percentage: percent_add(100, 10) = 110
+- percent_sub(base, pct) - subtract percentage: percent_sub(100, 10) = 90
+- percent_of(base, pct) - calculate percentage: percent_of(100, 10) = 10
+- percent_change(old, new) - percentage change: percent_change(50, 75) = 50
+- percent_diff(val1, val2) - percentage difference
+
 Advanced:
 - solve("equation")
-- derivative("expression", point)
-- integrate("expression", lower, upper)
+- derivative("expression", point) - REQUIRES point! Use 0 if not specified
+- integrate("expression", lower, upper) - REQUIRES bounds! Use 0,1 if not specified
 - mean([...]), median([...]), stdev([...])
 
 Matrices & Vectors:
@@ -71,6 +81,21 @@ Output: det([[1,2],[3,4]])
 
 Input: "derivative of x squared at x equals 3"
 Output: derivative("x**2", 3)
+
+Input: "derivative of x squared"
+Output: derivative("x**2", 0)
+
+Input: "what is the derivative of 2x squared plus 3x plus 5"
+Output: derivative("2*x**2 + 3*x + 5", 0)
+
+Input: "derivative of x cubed at 2"
+Output: derivative("x**3", 2)
+
+Input: "integrate x squared from 0 to 2"
+Output: integrate("x**2", 0, 2)
+
+Input: "integrate x squared"
+Output: integrate("x**2", 0, 1)
 
 Now translate this:"""
 

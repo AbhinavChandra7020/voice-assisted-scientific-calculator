@@ -21,6 +21,7 @@ from .utils.history import get_function as get_history_function, add_to_history
 from .basic_operations.ratio_functions import get_function as get_ratio_function
 from .basic_operations.logical_operators import get_function as get_logical_function
 from .advanced_operations.inequality_solver import get_function as get_inequality_function
+from calculator.basic_operations.percent_operations import get_function as get_percent_func
 
 _last_answer = 0
 
@@ -41,7 +42,7 @@ def get_function(name):
                    get_unit_function, get_fraction_function,
                    get_probability_function, get_history_function,
                    get_ratio_function, get_logical_function,
-                   get_inequality_function]:
+                   get_inequality_function, get_percent_func]:
         try:
             return getter(name)
         except ValueError:
